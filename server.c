@@ -10,7 +10,8 @@ int main() {
     from_client = server_handshake( &to_client );
 
   while(read(from_client, buffer, sizeof(buffer)))
-    
+    process(buffer);
+    write(to_client, buffer, sizeof(buffer));
     printf("buffer: %s", buffer);
   }
 }
